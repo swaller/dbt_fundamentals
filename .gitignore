@@ -1,4 +1,13 @@
+# --- Secrets and Credentials ---
+.env
+.env.local
+.env.*
 
+# --- dbt / Data Folders ---
 target/
 dbt_packages/
 logs/
+
+# --- System Junk ---
+.DS_Store
+Thumbs.db
