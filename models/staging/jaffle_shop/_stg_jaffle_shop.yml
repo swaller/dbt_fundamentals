@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: stg_jaffle_shop__customers
+    description: Staged customer data
+    columns:
+      - name: customer_id
+        description: Primary key for customers
+        tests:
+          - not_null
+          - unique
+
+  - name: stg_jaffle_shop__orders
+    description: Staged order data
+    columns:
+      - name: order_id
+        description: Primary key for orders
+        tests:
+          - not_null
+          - unique
+
+      - name: status
+        description: Order status
+        tests:
+          - accepted_values:
+              values: ['completed', 'placed', 'return_pending', 'returned', 'shipped']
