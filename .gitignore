@@ -2,6 +2,7 @@
 .env
 .env.local
 .env.*
+profiles.yml
 
 # --- dbt / Data Folders ---
 target/
@@ -11,3 +12,4 @@ logs/
 # --- System Junk ---
 .DS_Store
 Thumbs.db
+dbt_internal_packages/
