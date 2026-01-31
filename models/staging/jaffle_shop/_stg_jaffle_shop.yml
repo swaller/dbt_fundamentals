@@ -20,13 +20,20 @@ models:
           - unique
 
       - name: customer_id
+        description: Foreign key referencing customers
         tests:
+          - not_null
+          - unique
+
+        data_tests:
           - relationships:
-              to: ref('stg_jaffle_shop__customers')
-              field: customer_id
+                arguments:
+                  field: customer_id
+                  to: ref('stg_jaffle_shop__customers')
 
       - name: status
-        description: Order status
+        description: "{{ doc('order_status')}}"
         tests:
           - accepted_values:
-              values: ['completed', 'placed', 'return_pending', 'returned', 'shipped']
+              arguments:
+                values: ['completed', 'placed', 'return_pending', 'returned', 'shipped']
