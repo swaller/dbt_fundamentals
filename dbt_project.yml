@@ -31,4 +31,17 @@ clean-targets:         # directories to be removed by `dbt clean`
 # files using the `{{ config(...) }}` macro.
 models:
   dbt_tutorial_snowflake:
-    +materialized: view
+    # Everything in the 'models/staging/' folder
+    staging:
+      +schema: bronze
+      +materialized: view  # (Staging is usually views)
+
+    # Everything in the 'models/intermediate/' folder
+    intermediate:
+      +schema: silver
+      +materialized: table
+
+    # Everything in the 'models/marts/' folder
+    marts:
+      +schema: gold
+      +materialized: table
